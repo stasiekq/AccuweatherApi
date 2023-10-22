@@ -1,14 +1,11 @@
 import customtkinter
-import datetime as dt
 import requests
-from PIL import Image, ImageTk
+from PIL import Image
 from io import BytesIO
-import socket
 
 BASE_URL = "http://dataservice.accuweather.com/locations/v1/cities/search"
 POSTAL_URL = "http://dataservice.accuweather.com/locations/v1/postalcodes/search"
 WEATHER_URL = "http://dataservice.accuweather.com/currentconditions/v1/"
-PICTURE_URL = "http://dataservice.accuweather.com/imagery/v1/maps/radsat/480x480/264369"
 TOMORROW_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/"
 NEIGBOURS_URL = "http://dataservice.accuweather.com/locations/v1/cities/neighbors/"
 API_KEY = "DnR9ZZrPguPY9udOQpnrq64uUk7bJiff"
@@ -41,7 +38,6 @@ def get_location(city):
     response = requests.get(BASE_URL, params=query_params)
     data = response.json()
     print(data)
-    #extract localizedname from data
     cityname = data[0]["LocalizedName"]
     global locationkey
     locationkey = data[0]["Key"]
