@@ -91,31 +91,6 @@ def further_action(cityname):
     label.configure(text=cityname)
     print("hihi")
 
-def get_picture():
-    query_params = {
-        "apikey": API_KEY,
-        "language": "pl-pl",
-    }
-
-    image_url = "https://scontent-waw1-1.xx.fbcdn.net/v/t39.30808-6/387773743_719915213511812_2899296914246115864_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=YRUTDuyggL8AX9OlAWA&_nc_ht=scontent-waw1-1.xx&oh=00_AfChRTCByAXBBqXdvxb748y5_gP1X3ZNhEFFJB4YLDoXaw&oe=6538F8DE"
-    response = requests.get(image_url)
-
-    if response.status_code == 200:
-        # Przekształć odpowiedź do obiektu Image
-        image_data = BytesIO(response.content)
-        image = Image.open(image_data)
-        photo = customtkinter.CTkImage(image)
-
-
-        # Utwórz okno aplikacji CTK
-        root = customtkinter.CTk()
-        root.title("CustomTkinter - Wyświetlanie obrazu")
-
-        # Utwórz etykietę i przypisz obraz
-        labelph.configure(image=photo)
-
-        # Rozpocznij pętlę główną aplikacji
-
 
 
 frame = customtkinter.CTkFrame(master=root)
